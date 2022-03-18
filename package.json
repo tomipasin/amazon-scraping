@@ -1,0 +1,26 @@
+{
+  "name": "amazon-scrape",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "cheerio": "^1.0.0-rc.10",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.6",
+    "husky": "^4.3.8",
+    "jest": "^27.0.0",
+    "nodemon": "^2.0.15",
+    "puppeteer": "^10.2.0"
+  }
+}
