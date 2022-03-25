@@ -1,3 +1,11 @@
+# E-commerce scrapping usando Puppeteer
+Este é um scrapping básico  que tem as seguintes características:
+1. busca na página da Amazon Brasil
+
+
+
+
+
 # TODO
 1. Using puppeteer (https://github.com/puppeteer/puppeteer), visit https://www.amazon.co.uk
 2. Input the search term "headphones" and click the search button
