@@ -82,12 +82,13 @@ Scrapping: https://www.amazon.com.br/s?k=electric%20bike
 Getting product information...
 Product information retrieved: 54 results found
 Writing file: electric%20bike-30_3_2022-1145-com.br.json
-Done!```
-
+Done!
+```
 ## How can I test this?
 Inside test folder you can find simple Jest tests that I wrote to cover our functions. 
-To run tests just run the followin command: `npm run test`.
+To run tests just run the followin command:  
+`npm run test`.
 
-```
+
 
 Good luck! :-)
