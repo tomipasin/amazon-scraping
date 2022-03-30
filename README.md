@@ -17,7 +17,7 @@ For this project I used the Google Puppeteer library - https://pptr.dev/.
 It's important to remark that you can adapt this code to other Amazon sites just changing the selectors. 
 You can try too use this logic to do some scrapping of another e-commerce sites, doing these adjustments, of course. 
 
-Any doubts? Contact me on tomipasin@gmail.com
+Any doubts? Write me on tomipasin@gmail.com
 
 
 ## How it works?
@@ -56,11 +56,19 @@ Basically we automated the following steps:
 
 ## How can I run it?
 Simple, clone this repository and run the npm command informing the product to search for.
+
+
 In this example we are searching for 'bike':
+
+
 `npm run start -- --product=bike`
 
 If you have to search for anything with more than one word please use `%20` to replace spaces.
-In this example we are searching for 'Che Guevara'
+
+
+In this example we are searching for 'Che Guevara':
+
+
 `npm run start -- --product=Che%20Guevara`
 
 The results will be available on Results folder. 
