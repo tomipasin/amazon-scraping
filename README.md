@@ -60,14 +60,12 @@ Simple, clone this repository and run the npm command informing the product to s
 
 In this example we are searching for 'bike':
 
-
 `npm run start -- --product=bike`
 
 If you have to search for anything with more than one word please use `%20` to replace spaces.
 
 
 In this example we are searching for 'Che Guevara':
-
 
 `npm run start -- --product=Che%20Guevara`
 
