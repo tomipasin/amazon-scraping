@@ -74,12 +74,12 @@ describe("Scrapper tests: ", () => {
     const scrapper = new Scrapper(this.url, this.product);
     await scrapper.writeFile(mockResults);
     expect(writeFile.calledOnce).to.be.true;
-    // fs.unlinkSync(
-    //   path.join(
-    //     __dirname,
-    //     `../results/${this.product}-${day}_${month}_${year}-${hour}${minute}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`
-    //   )
-    // );
+    fs.unlinkSync(
+      path.join(
+        __dirname,
+        `../results/${this.product}-${day}_${month}_${year}-${hour}${minute}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`
+      )
+    );
     writeFile.restore();
   });
 
