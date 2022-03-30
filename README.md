@@ -1,4 +1,4 @@
-# Amazon e-commerce scrapping using Puppeteer
+# Amazon e-commerce scraping using Puppeteer
 
 This is my scrapperthat is capable to collect Amazon products from the following 11 world locations and save it to a JSON file:
 
@@ -17,7 +17,7 @@ This is my scrapperthat is capable to collect Amazon products from the following
 For this project I used the Google Puppeteer library - https://pptr.dev/.  
 
 It's important to remark that you can adapt this code to other Amazon sites just changing the selectors. 
-You can try too use this logic to do some scrapping of another e-commerce sites, doing these adjustments, of course. 
+You can try too use this logic to do some scraping of another e-commerce sites, doing these adjustments, of course. 
 
 Any doubts? Write me on tomipasin@gmail.com
 
