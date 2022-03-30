@@ -13,7 +13,11 @@ This is my scrapperthat is capable to collect Amazon products from the following
 * UK;
 * Brazil;
 
-For this project I used the Puppeteer library - https://pptr.dev/. 
+For this project I used the Google Puppeteer library - https://pptr.dev/. 
+It's important to remark that you can adapt this code to other Amazon sites just changing the selectors. 
+You can try too use this logic to do some scrapping of another e-commerce sites, doing these adjustments, of course. 
+
+
 
 ## How it works?
 Basically we automated the following steps:
@@ -47,6 +51,8 @@ Basically we automated the following steps:
   },
 ]
 ```
+
+
 ## How can I run it?
 Simple, clone this repository and run the npm command informing the product to search for.
 In this example we are searching for 'bike':
@@ -71,7 +77,7 @@ Done!
 ```
 
 ## How can I test this?
-Inside test folder you can find simple Jest tests that I wrote to cover 100% of our modules. 
+Inside test folder you can find simple Jest tests that I wrote to cover our functions. 
 To run tests just run the followin command: `npm run test`.
 
 ````
@@ -79,17 +85,19 @@ To run tests just run the followin command: `npm run test`.
 Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+
  PASS  test/scrapper.test.js
   Scrapper tests:
-    √ getPage (3 ms)
+    √ getPage - page (3 ms)
+    √ getPage - browser (1001 ms)
     √ scrape (3 ms)
-    √ writeFile (53 ms)
+    √ writeFile (16 ms)
+    √ run (1700 ms)
 
 Test Suites: 1 passed, 1 total
-Tests:       3 passed, 3 total
+Tests:       5 passed, 5 total
 Snapshots:   0 total
-Time:        1.809 s, estimated 2 s
+Time:        4.11 s
 Ran all test suites.
-
 ````
 

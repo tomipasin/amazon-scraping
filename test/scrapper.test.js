@@ -5,7 +5,6 @@ const sinon = require("sinon");
 const Scrapper = require("./scrapper");
 const fs = require("fs");
 const path = require("path");
-
 const mockResults = [
   {
     title:
@@ -32,11 +31,23 @@ const mockResults = [
 ];
 
 describe("Scrapper tests: ", () => {
-  it("getPage", async () => {
+
+  beforeEach(() => {
+    this.product = "flashdrive";
+    this.url = "https://www.amazon.de/s?k=";
+  });
+  it("getPage - page", async () => {
     const page = sinon.stub(Scrapper.prototype, "getPage").resolves([{}]);
     await Scrapper.prototype.getPage();
     expect(page.calledOnce).to.be.true;
+    expect(page).to.be.equal(Scrapper.prototype.getPage);
     page.restore();
+  });
+
+  it("getPage - browser", async () => {
+    const result = await Scrapper.prototype.getPage();
+    expect(result).to.be.an("object");
+    result.browser().close();
   });
 
   it("scrape", async () => {
@@ -53,19 +64,31 @@ describe("Scrapper tests: ", () => {
 
   it("writeFile", async () => {
     const writeFile = sinon.spy(Scrapper.prototype, "writeFile");
-    const url = "https://www.amazon.de/s?k=";
-    const product = "flashdrive";
-    const scrapper = new Scrapper(url, product);
+    const scrapper = new Scrapper(this.url, this.product);
     await scrapper.writeFile(mockResults);
     expect(writeFile.calledOnce).to.be.true;
     fs.unlinkSync(
       path.join(
         __dirname,
-        `../results/${product}-${new Date().toDateString()}-${url
-          .replace("https://www.amazon.", "")
-          .slice(0, -5)}.json`
+        `../results/${this.product}-${new Date().toDateString()}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`
       )
     );
     writeFile.restore();
   });
+
+  it("run", async () => {
+    const run = sinon.spy(Scrapper.prototype, "run");
+    const page = sinon.spy(Scrapper.prototype, "getPage");
+    const scrape = sinon.stub(Scrapper.prototype, "scrape").resolves(mockResults);
+    const writeFile = sinon.stub(Scrapper.prototype, "writeFile").resolves(mockResults);
+
+    await Scrapper.prototype.run();
+    expect(run.calledOnce).to.be.true;
+
+    page.restore();
+    scrape.restore();
+    writeFile.restore();
+    run.restore();
+  });
+  
 });
