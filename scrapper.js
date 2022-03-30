@@ -1,7 +1,13 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require("path");
-
+const date = new Date();
+const hour = date.getHours();
+const minute = date.getMinutes();
+const second = date.getSeconds();
+const day = date.getDate();
+const month = date.getMonth() + 1;
+const year = date.getFullYear();
 
 /**
  * @param {string} url - The Amazon website url to scrape
@@ -92,9 +98,10 @@ class Scrapper {
    * @returns {Promise<void>} A JSON file containing the product name, price and url and other information
    */
   async writeFile(data) {
-    console.log(`Writing file: ${this.product}-${new Date().toDateString()}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`);
+
+        console.log(`Writing file: ${this.product}-${day}_${month}_${year}-${hour}${minute}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`);
     fs.writeFileSync(
-      path.join(__dirname, `../results/${this.product}-${new Date().toDateString()}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`),
+      path.join(__dirname, `results/${this.product}-${day}_${month}_${year}-${hour}${minute}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`),
       JSON.stringify(data, null, 2)
     );
     console.log("Done!");

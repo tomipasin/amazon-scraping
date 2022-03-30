@@ -2,9 +2,16 @@ const { expect } = require("chai");
 const puppeteer = require("puppeteer");
 const { describe, it } = require("eslint/lib/rule-tester/rule-tester");
 const sinon = require("sinon");
-const Scrapper = require("./scrapper");
+const Scrapper = require("../scrapper.js");
 const fs = require("fs");
 const path = require("path");
+const date = new Date();
+const hour = date.getHours();
+const minute = date.getMinutes();
+const second = date.getSeconds();
+const day = date.getDate();
+const month = date.getMonth() + 1;
+const year = date.getFullYear();
 const mockResults = [
   {
     title:
@@ -67,12 +74,12 @@ describe("Scrapper tests: ", () => {
     const scrapper = new Scrapper(this.url, this.product);
     await scrapper.writeFile(mockResults);
     expect(writeFile.calledOnce).to.be.true;
-    fs.unlinkSync(
-      path.join(
-        __dirname,
-        `../results/${this.product}-${new Date().toDateString()}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`
-      )
-    );
+    // fs.unlinkSync(
+    //   path.join(
+    //     __dirname,
+    //     `../results/${this.product}-${day}_${month}_${year}-${hour}${minute}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`
+    //   )
+    // );
     writeFile.restore();
   });
 
