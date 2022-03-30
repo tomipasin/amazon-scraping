@@ -13,7 +13,8 @@ This is my scrapperthat is capable to collect Amazon products from the following
 * UK;
 * Brazil;
 
-For this project I used the Google Puppeteer library - https://pptr.dev/. 
+For this project I used the Google Puppeteer library - https://pptr.dev/.  
+
 It's important to remark that you can adapt this code to other Amazon sites just changing the selectors. 
 You can try too use this logic to do some scrapping of another e-commerce sites, doing these adjustments, of course. 
 
