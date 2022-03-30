@@ -1,9 +1,22 @@
 # E-commerce scrapping usando Puppeteer
-This is my scrapper capable to collect Amazon products from 11 world locations and save it to a JSON file. 
-For this project I used the Puppeteer package. 
+This is my scrapper capable to collect Amazon products from the following 11 world locations and save it to a JSON file:
+
+* Deutschland;
+* Canada;
+* Spain;
+* USA;
+* France;
+* Netherlands;
+* Italy;
+* Mexico;
+* Poland;
+* UK;
+* Brazil;
+
+For this project I used the Puppeteer library - https://pptr.dev/. 
 
 ## How it works?
-Basically we automate the following steps:
+Basically we automated the following steps:
 1. open a Chromiun browser;
 2. access a predefined Amazon website URL;
 3. search for a product;
@@ -34,3 +47,8 @@ Basically we automate the following steps:
   },
 ]
 ```
+## How can I run it?
+Simple, clone this repository and run the npm command informing the product to search for:
+
+`npm run start -- --product=bike`
+
