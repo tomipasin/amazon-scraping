@@ -92,7 +92,7 @@ class Scrapper {
    * @returns {Promise<void>} A JSON file containing the product name, price and url and other information
    */
   async writeFile(data) {
-    console.log("Writing file...");
+    console.log(`Writing file: ${this.product}-${new Date().toDateString()}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`);
     fs.writeFileSync(
       path.join(__dirname, `../results/${this.product}-${new Date().toDateString()}-${this.url.replace("https://www.amazon.", "").slice(0, -5)}.json`),
       JSON.stringify(data, null, 2)

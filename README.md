@@ -48,7 +48,27 @@ Basically we automated the following steps:
 ]
 ```
 ## How can I run it?
-Simple, clone this repository and run the npm command informing the product to search for:
-
+Simple, clone this repository and run the npm command informing the product to search for.
+In this example we are searching for 'bike'
 `npm run start -- --product=bike`
+
+The results will be available on Results folder. 
+You can follow the process by look to logs on console that will infor you about wich site is scrapped, quantity of results and the file generation process. 
+
+
+```
+Scrapping: https://www.amazon.de/s?k=bike
+Getting product information...
+Product information retrieved: 22 results found
+Writing file: bike-Wed Mar 30 2022-de.json
+Done!
+
+Scrapping: https://www.amazon.ca/s?k=bike
+Getting product information...
+Product information retrieved: 60 results found
+Writing file: bike-Wed Mar 30 2022-ca.json
+Done!
+```
+
+
 

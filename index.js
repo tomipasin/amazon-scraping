@@ -4,15 +4,15 @@ const product = args['product'];
 const globalWebsites = [
   "https://www.amazon.de/s?k=",
   "https://www.amazon.ca/s?k=",
-  "https://www.amazon.es/s?k=",
-  "https://www.amazon.com/s?k=",
-  "https://www.amazon.fr/s?k=",
-  "https://www.amazon.nl/s?k=",
-  "https://www.amazon.it/s?k=",
-  "https://www.amazon.com.mx/s?k=",
-  "https://www.amazon.pl/s?k=",
-  "https://www.amazon.co.uk/s?k=",
-  "https://www.amazon.com.br/s?k=",
+  // "https://www.amazon.es/s?k=",
+  // "https://www.amazon.com/s?k=",
+  // "https://www.amazon.fr/s?k=",
+  // "https://www.amazon.nl/s?k=",
+  // "https://www.amazon.it/s?k=",
+  // "https://www.amazon.com.mx/s?k=",
+  // "https://www.amazon.pl/s?k=",
+  // "https://www.amazon.co.uk/s?k=",
+  // "https://www.amazon.com.br/s?k=",
 ];
 
 
