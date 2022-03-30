@@ -1,4 +1,5 @@
 # Amazon e-commerce scrapping using Puppeteer
+
 This is my scrapperthat is capable to collect Amazon products from the following 11 world locations and save it to a JSON file:
 
 * Deutschland;
