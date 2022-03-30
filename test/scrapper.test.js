@@ -2,7 +2,7 @@ const { expect } = require("chai");
 const puppeteer = require("puppeteer");
 const { describe, it } = require("eslint/lib/rule-tester/rule-tester");
 const sinon = require("sinon");
-const Scrapper = require("../scrapper.js");
+const Scraper = require("../scraper.js");
 const fs = require("fs");
 const path = require("path");
 const date = new Date();
@@ -37,42 +37,42 @@ const mockResults = [
   },
 ];
 
-describe("Scrapper tests: ", () => {
+describe("Scraper tests: ", () => {
 
   beforeEach(() => {
     this.product = "flashdrive";
     this.url = "https://www.amazon.de/s?k=";
   });
   it("getPage - page", async () => {
-    const page = sinon.stub(Scrapper.prototype, "getPage").resolves([{}]);
-    await Scrapper.prototype.getPage();
+    const page = sinon.stub(Scraper.prototype, "getPage").resolves([{}]);
+    await Scraper.prototype.getPage();
     expect(page.calledOnce).to.be.true;
-    expect(page).to.be.equal(Scrapper.prototype.getPage);
+    expect(page).to.be.equal(Scraper.prototype.getPage);
     page.restore();
   });
 
   it("getPage - browser", async () => {
-    const result = await Scrapper.prototype.getPage();
+    const result = await Scraper.prototype.getPage();
     expect(result).to.be.an("object");
     result.browser().close();
   });
 
   it("scrape", async () => {
-    const page = sinon.stub(Scrapper.prototype, "scrape").resolves(mockResults);
-    await Scrapper.prototype.scrape(page);
+    const page = sinon.stub(Scraper.prototype, "scrape").resolves(mockResults);
+    await Scraper.prototype.scrape(page);
 
     expect(page.calledOnce).to.be.true;
     expect(page.calledWith(page)).to.be.true;
     expect(page).to.be.a("function");
-    expect(page).to.be.equal(Scrapper.prototype.scrape);
+    expect(page).to.be.equal(Scraper.prototype.scrape);
 
     page.restore();
   });
 
   it("writeFile", async () => {
-    const writeFile = sinon.spy(Scrapper.prototype, "writeFile");
-    const scrapper = new Scrapper(this.url, this.product);
-    await scrapper.writeFile(mockResults);
+    const writeFile = sinon.spy(Scraper.prototype, "writeFile");
+    const scraper = new Scraper(this.url, this.product);
+    await scraper.writeFile(mockResults);
     expect(writeFile.calledOnce).to.be.true;
     fs.unlinkSync(
       path.join(
@@ -84,12 +84,12 @@ describe("Scrapper tests: ", () => {
   });
 
   it("run", async () => {
-    const run = sinon.spy(Scrapper.prototype, "run");
-    const page = sinon.spy(Scrapper.prototype, "getPage");
-    const scrape = sinon.stub(Scrapper.prototype, "scrape").resolves(mockResults);
-    const writeFile = sinon.stub(Scrapper.prototype, "writeFile").resolves(mockResults);
+    const run = sinon.spy(Scraper.prototype, "run");
+    const page = sinon.spy(Scraper.prototype, "getPage");
+    const scrape = sinon.stub(Scraper.prototype, "scrape").resolves(mockResults);
+    const writeFile = sinon.stub(Scraper.prototype, "writeFile").resolves(mockResults);
 
-    await Scrapper.prototype.run();
+    await Scraper.prototype.run();
     expect(run.calledOnce).to.be.true;
 
     page.restore();

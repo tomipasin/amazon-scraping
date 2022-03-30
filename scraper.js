@@ -14,7 +14,7 @@ const year = date.getFullYear();
  * @param {string} product - The product to search for
  * @Returns A JSON file containing the product name, price and url and other information
  */
-class Scrapper {
+class Scraper {
 
   /**
    * The constructor of the class.
@@ -27,7 +27,7 @@ class Scrapper {
   }
 
   /**
-   * Run the scrapper
+   * Run the scraper
    */
   async run() {
     try {
@@ -45,7 +45,7 @@ class Scrapper {
    * @returns {Promise<puppeteer.Page>}
    */
   async getPage() {
-    console.log("Scrapping: " + this.url + this.product);
+    console.log("Scraping: " + this.url + this.product);
     const browser = await puppeteer.launch({
       headless: false,
       args: ["--start-maximized"],
@@ -108,4 +108,4 @@ class Scrapper {
   }
 }
 
-module.exports = Scrapper;
+module.exports = Scraper;

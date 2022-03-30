@@ -1,4 +1,4 @@
-const Scrapper = require("./scrapper");
+const Scraper = require("./scraper");
 const args = require('minimist')(process.argv.slice(2))
 const product = args['product'];
 const globalWebsites = [
@@ -17,7 +17,7 @@ const globalWebsites = [
 
 
 /**
- * My scrapper consists of three parts:
+ * My scraper consists of three parts:
  * 1 - the browser/page part
  * 2 - the product information part
  * 3 - the output file part
@@ -30,7 +30,7 @@ const globalWebsites = [
  * I've wrote the code this way to turn easy to implement a setTimeout and run the code on pre-defined
  * intervals.
  * 
- * call the following on terminal to run the scrapper searching for bike:
+ * call the following on terminal to run the scraper searching for bike:
  * npm run start -- --product=bike
  *
  * @author Tomi Pasin - "tomipasin@gmailcom"
@@ -38,7 +38,7 @@ const globalWebsites = [
 (async () => {
   for (let i = 0; i < globalWebsites.length; i++) {
     const url = globalWebsites[i];
-    const scrapper = new Scrapper(url, product);
-    await scrapper.run();
+    const scraper = new Scraper(url, product);
+    await scraper.run();
   }
 })();

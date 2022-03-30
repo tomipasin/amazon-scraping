@@ -1,5 +1,5 @@
-# Amazon e-commerce scrapping using Puppeteer
-This is my scrapperthat is capable to collect Amazon products from the following 11 world locations and save it to a JSON file:
+# Amazon e-commerce web scraping using Puppeteer
+This is my scraper that is capable to collect Amazon products from the following 11 world locations and save it to a JSON file:
 
 * Deutschland;
 * Canada;
@@ -16,7 +16,7 @@ This is my scrapperthat is capable to collect Amazon products from the following
 For this project I used the Google Puppeteer library - https://pptr.dev/.  
 
 It's important to remark that you can adapt this code to other Amazon sites just changing the selectors. 
-You can try too use this logic to do some scrapping of another e-commerce sites, doing these adjustments, of course. 
+You can try too use this logic to do some web scraping of another e-commerce sites, doing these adjustments, of course. 
 
 Any doubts? Write me on tomipasin@gmail.com
 
@@ -69,17 +69,17 @@ In this example we are searching for 'Che Guevara':
 `npm run start -- --product=Che%20Guevara`
 
 The results will be available on Results folder. 
-You can follow the process by look to logs on console that will infor you about wich site is scrapped, quantity of results and the file generation process. 
+You can follow the process by look to logs on console that will infor you about wich site is scraped, quantity of results and the file generation process. 
 
 
 ```
-Scrapping: https://www.amazon.co.uk/s?k=electric%20bike
+Scraping: https://www.amazon.co.uk/s?k=electric%20bike
 Getting product information...
 Product information retrieved: 22 results found
 Writing file: electric%20bike-30_3_2022-1145-co.uk.json
 Done!
 
-Scrapping: https://www.amazon.com.br/s?k=electric%20bike
+Scraping: https://www.amazon.com.br/s?k=electric%20bike
 Getting product information...
 Product information retrieved: 54 results found
 Writing file: electric%20bike-30_3_2022-1145-com.br.json
