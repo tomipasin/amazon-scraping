@@ -88,24 +88,6 @@ Done!```
 Inside test folder you can find simple Jest tests that I wrote to cover our functions. 
 To run tests just run the followin command: `npm run test`.
 
-````
+```
 
-Browserslist: caniuse-lite is outdated. Please run:
-  npx browserslist@latest --update-db
-  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
-
- PASS  test/scrapper.test.js
-  Scrapper tests:
-    √ getPage - page (3 ms)
-    √ getPage - browser (1001 ms)
-    √ scrape (3 ms)
-    √ writeFile (16 ms)
-    √ run (1700 ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       5 passed, 5 total
-Snapshots:   0 total
-Time:        4.11 s
-Ran all test suites.
-````
-
+Good luck! :-)
