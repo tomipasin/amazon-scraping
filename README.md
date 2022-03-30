@@ -1,5 +1,5 @@
-# E-commerce scrapping usando Puppeteer
-This is my scrapper capable to collect Amazon products from the following 11 world locations and save it to a JSON file:
+# Amazon e-commerce scrapping using Puppeteer
+This is my scrapperthat is capable to collect Amazon products from the following 11 world locations and save it to a JSON file:
 
 * Deutschland;
 * Canada;
@@ -49,7 +49,7 @@ Basically we automated the following steps:
 ```
 ## How can I run it?
 Simple, clone this repository and run the npm command informing the product to search for.
-In this example we are searching for 'bike'
+In this example we are searching for 'bike':
 `npm run start -- --product=bike`
 
 The results will be available on Results folder. 
@@ -70,5 +70,26 @@ Writing file: bike-Wed Mar 30 2022-ca.json
 Done!
 ```
 
+## How can I test this?
+Inside test folder you can find simple Jest tests that I wrote to cover 100% of our modules. 
+To run tests just run the followin command: `npm run test`.
 
+````
+
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+ PASS  test/scrapper.test.js
+  Scrapper tests:
+    √ getPage (3 ms)
+    √ scrape (3 ms)
+    √ writeFile (53 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        1.809 s, estimated 2 s
+Ran all test suites.
+
+````
 
