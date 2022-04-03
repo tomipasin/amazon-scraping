@@ -72,12 +72,12 @@ class Scraper {
       const results = [...document.querySelectorAll('[class="_3t7zg _2f4Ho"]')];
 
 
-<img class="_1RtJV product-img" src="//ae01.alicdn.com/kf/S68226a2558c546d090457a4445dbe10af/Original-Xiaomi-Redmi-Airdots-2-Wireless-Headphones-Bluetooth-Earphones-Noise-Reduction-Headset-with-Mic-Redmi-Airdots.jpg_220x220xz.jpg_.webp" alt="Original xiaomi redmi airdots 2 fones de ouvido sem fio bluetooth redução ruído fone com microfone redmi airdots 2 fone"></img>
 
       return results.map((e, i) => ({
         title: `${e.querySelector("._18_85").innerText}`,
         link: `${e.href}`,
-        image: `${e.querySelector("._1RtJV product-img").src}`,
+        // price: `${(e.querySelector('[class="mGXnE _37W_B"]>span').innerText)}`,
+        price: `${Array.from(e.querySelectorAll('[class="mGXnE _37W_B"]>span'))[0].innerText}${Array.from(e.querySelectorAll('[class="mGXnE _37W_B"]>span'))[1].innerText}${Array.from(e.querySelectorAll('[class="mGXnE _37W_B"]>span'))[2].innerText}${Array.from(e.querySelectorAll('[class="mGXnE _37W_B"]>span'))[3].innerText}`,
         // price: e.querySelector('[class="mGXnE _37W_B"]>span')
         //   ? e.querySelector('[class="mGXnE _37W_B"]>span').innerText.replace(/\u00A0/g, "")
         //   : "NULL",
