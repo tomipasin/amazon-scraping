@@ -33,7 +33,7 @@ class Scraper {
     try {
       const page = await this.getPage();
       const results = await this.scrape(page);
-      await this.writeFile(results);
+      // await this.writeFile(results);
       await page.browser().close();
     } catch (e) {
       console.log(e);
@@ -60,35 +60,40 @@ class Scraper {
    * @returns {Promise<Object>} The product information
    */
   async scrape(page) {
+
     await page.goto(this.url + this.product);
-    await page.waitForSelector('[data-component-type="s-search-result"]');
-    console.log("Getting product information...");
-    const products = await page.$$('[data-component-type="s-search-result"]');
-    console.log("Product information retrieved: " + products.length + " results found");
+    await page.waitForSelector('[class="product-container"]');
+    // console.log("Getting product information...");
+    const products = await page.$$('[class="_3t7zg _2f4Ho"]');
+    console.log("----->>> Product information retrieved: " + products.length + " results found");
+
+
     const searchResults = await page.evaluate(() => {
-      const results = [...document.querySelectorAll('[data-component-type="s-search-result"]')];
+      const results = [...document.querySelectorAll('[class="_3t7zg _2f4Ho"]')];
+
+
+<img class="_1RtJV product-img" src="//ae01.alicdn.com/kf/S68226a2558c546d090457a4445dbe10af/Original-Xiaomi-Redmi-Airdots-2-Wireless-Headphones-Bluetooth-Earphones-Noise-Reduction-Headset-with-Mic-Redmi-Airdots.jpg_220x220xz.jpg_.webp" alt="Original xiaomi redmi airdots 2 fones de ouvido sem fio bluetooth redução ruído fone com microfone redmi airdots 2 fone"></img>
+
       return results.map((e, i) => ({
-        title: `${e.querySelector(".a-section .a-link-normal .a-text-normal").innerText}`,
-        link: `${e.querySelector(".a-link-normal").href}`,
-        image: `${e.querySelector(".s-image").src}`,
-        price: e.querySelector('[data-a-color="base"]>span')
-          ? e.querySelector('[data-a-color="base"]>span').innerText.replace(/\u00A0/g, "")
-          : "NULL",
-        previousPrice: e.querySelector('[data-a-color="secondary"]>span')
-          ? e.querySelector('[data-a-color="secondary"]>span').innerText.replace(/\u00A0/g, "")
-          : 0,
-        rating: e.querySelector('[class="a-icon-alt"]')
-          ? parseFloat(e.querySelector('[class="a-icon-alt"]').innerText)
-          : 0,
-        numberOfReviews: e.querySelector('[class="a-size-base s-underline-text"]')
-          ? parseInt(
-              e.querySelector('[class="a-size-base s-underline-text"]').innerText.split(" ")[0].replace(",", ""),
-              10
-            )
-          : 0,
+        title: `${e.querySelector("._18_85").innerText}`,
+        link: `${e.href}`,
+        image: `${e.querySelector("._1RtJV product-img").src}`,
+        // price: e.querySelector('[class="mGXnE _37W_B"]>span')
+        //   ? e.querySelector('[class="mGXnE _37W_B"]>span').innerText.replace(/\u00A0/g, "")
+        //   : "NULL",
+        // rating: e.querySelector('[class="a-icon-alt"]')
+        //   ? parseFloat(e.querySelector('[class="a-icon-alt"]').innerText)
+        //   : 0,
+        // qtSold: e.querySelector('[class="a-size-base s-underline-text"]')
+        //   ? parseInt(
+        //       e.querySelector('[class="a-size-base s-underline-text"]').innerText.split(" ")[0].replace(",", ""),
+        //       10
+        //     )
+        //   : 0,
         resultPosition: i + 1,
       }));
     });
+    console.log(searchResults);
     return searchResults;
   }
 
